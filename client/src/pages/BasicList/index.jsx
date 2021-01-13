@@ -1,35 +1,15 @@
-import { Button, message, Input, Drawer, List, Avatar } from 'antd';
-import React, { useState, useRef, useEffect } from 'react';
-import { useIntl, FormattedMessage } from 'umi';
-import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
-import { ModalForm, ProFormText, ProFormTextArea } from '@ant-design/pro-form';
-import UpdateForm from './components/UpdateForm';
-import { getUserData } from './service';
+import { List, Avatar } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { useIntl } from 'umi';
+import { PageContainer } from '@ant-design/pro-layout';
 /**
  * 添加节点
  * @param fields
  */
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const data = [
-  {
-    name: 'Ant Design Title 1',
-    profession: ''
-  },
-];
-const BasicList = () => {
-  /**
-   * 新建窗口的弹窗
-   */
-  const [createModalVisible, handleModalVisible] = useState(false);
-  /**
-   * 分布更新窗口的弹窗
-   */
 
+const BasicList = () => {
   const [userData, setUserData] = useState([]);
-  const actionRef = useRef();
-  /**
-   * 国际化配置
-   */
 
   useEffect(() => {
     // setUserData(getUserData());
@@ -66,7 +46,7 @@ const BasicList = () => {
             <List.Item.Meta
               avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
               title={<a href="https://ant.design">{item.name}</a>}
-              description={item.profession}
+              description={"profession: " + item.profession}
             />
           </List.Item>
         )}
